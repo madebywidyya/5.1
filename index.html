@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#A8D8EA">
+  <meta name="description" content="Class 5.1 — One Class, One Story, Nineteen Memories. Website resmi kelas 5.1.">
+  <meta property="og:title" content="Class 5.1 — One Class, One Story">
+  <meta property="og:description" content="Website cantik kelas 5.1. Kenali 19+ anggota, jadwal, kenangan, dan lebih banyak lagi.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/og-image.svg">
+  <title>Class 5.1 — One Class, One Story</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Soft sky decoration -->
+  <div class="sky" id="sky" aria-hidden="true"></div>
+
+  <!-- Enter gate (handles autoplay policy) -->
+  <div class="enter-gate" id="enterGate">
+    <h1>Welcome to Class 5.1 💙</h1>
+    <p>One Class, One Story, Nineteen Memories.<br>Ketuk tombol di bawah untuk masuk dan memulai musik latar (opsional).</p>
+    <button class="enter-btn" id="enterBtn">ENTER CLASS 5.1 🎵</button>
+    <p style="margin-top:16px;font-size:0.8rem;color:var(--muted)">Musik: Kita — Sheila On 7 (sumber legal perlu ditambahkan oleh kelas)</p>
+  </div>
+
+  <header class="header">
+    <a class="logo" href="#home">Class <span>5.1</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+    <nav class="nav" id="nav">
+      <a href="#home" class="active">Home</a>
+      <a href="#members">Anggota</a>
+      <a href="#piket">Piket</a>
+      <a href="#jadwal">Jadwal</a>
+      <a href="#memories">Kenangan</a>
+      <a href="#birthday">Ultah</a>
+      <a href="#guestbook">Guestbook</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section class="hero" id="home">
+      <p class="eyebrow" id="greeting" style="color:var(--baby-deep);font-weight:600;margin-bottom:8px">Selamat datang</p>
+      <h1>Welcome to Class 5.1</h1>
+      <p class="slogan">One Class, One Story, Nineteen Memories</p>
+      <div class="hero-meta">
+        <div class="meta-card">
+          <div class="label">Live Clock</div>
+          <div class="value" id="liveClock">--:--</div>
+        </div>
+        <div class="meta-card">
+          <div class="label">Tanggal</div>
+          <div class="value" id="liveDate">—</div>
+        </div>
+        <div class="meta-card">
+          <div class="label">Countdown</div>
+          <div class="value" id="countdown">—</div>
+        </div>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#members">Explore Our Class →</a>
+        <a class="btn btn-soft" href="#piket">Jadwal Piket</a>
+      </div>
+    </section>
+
+    <div class="quote-banner">
+      <p id="classQuote">“Kebersamaan adalah cerita terindah.”</p>
+      <small>— Class 5.1 Quote</small>
+    </div>
+
+    <div class="section" style="padding-top:0">
+      <div class="announce">
+        <span class="icon">📢</span>
+        <div>
+          <strong>Pengumuman</strong>
+          <p style="margin:4px 0 0;font-size:0.9rem;color:var(--muted)">Selamat datang di website resmi Class 5.1! Jelajahi profil teman, jadwal piket & pelajaran, lalu tinggalkan pesan di Guestbook.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WALI KELAS -->
+    <section class="section" id="wali">
+      <h2 class="section-title">Wali Kelas</h2>
+      <p class="section-sub">Pembimbing yang selalu mendukung Class 5.1</p>
+      <div class="wali-card">
+        <div class="avatar">W</div>
+        <h3 style="color:var(--navy);margin:8px 0 4px">Ibu Wali Kelas</h3>
+        <p style="color:var(--muted);font-size:0.9rem">Suka warna <strong style="color:#E8B923">kuning</strong> ☀️</p>
+        <p style="margin-top:10px;font-size:0.85rem">Terima kasih atas bimbingan dan kesabarannya membimbing 19+ putri berhijab Class 5.1.</p>
+      </div>
+    </section>
+
+    <!-- MEMBERS -->
+    <section class="section" id="members">
+      <h2 class="section-title">Anggota Class 5.1</h2>
+      <p class="section-sub">19+ putri berhijab — klik kartu untuk lihat profil lengkap</p>
+      <div class="tools">
+        <input type="search" class="search-input" id="searchInput" placeholder="Cari nama atau nickname…">
+        <select class="filter-select" id="filterAbsen">
+          <option value="all">Semua absen</option>
+        </select>
+      </div>
+      <div class="members-grid" id="membersGrid"></div>
+    </section>
+
+    <!-- PIKET -->
+    <section class="section" id="piket">
+      <h2 class="section-title">🧹 Jadwal Piket Kelas</h2>
+      <p class="section-sub">Class Cleaning Schedule — Senin sampai Jumat</p>
+      <div class="schedule-grid" id="piketGrid"></div>
+    </section>
+
+    <!-- JADWAL PELAJARAN -->
+    <section class="section" id="jadwal">
+      <h2 class="section-title">📚 Jadwal Pelajaran</h2>
+      <p class="section-sub">Mata pelajaran Class 5.1</p>
+      <div style="overflow-x:auto">
+        <table class="lesson-table">
+          <thead>
+            <tr>
+              <th>Hari</th>
+              <th>Mata Pelajaran</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Senin</strong></td>
+              <td>Desain Grafis, Tafsir, Tarbiyah, Fisika, Bahasa Indonesia</td>
+            </tr>
+            <tr>
+              <td><strong>Selasa</strong></td>
+              <td>Kimia, Bahasa Inggris, Ushul Fiqh, Fiqh, Sosial Media Marketing</td>
+            </tr>
+            <tr>
+              <td><strong>Rabu</strong></td>
+              <td>Desain Grafis, Ekonomi, Sosial Media Marketing, Shorof, Biologi, Ulumul Hadist</td>
+            </tr>
+            <tr>
+              <td><strong>Kamis</strong></td>
+              <td>Desain Grafis, Nahwu, Bahasa Inggris, Grammar</td>
+            </tr>
+            <tr>
+              <td><strong>Jumat</strong></td>
+              <td>Matematika, Bahasa Indonesia, Sosial Media Marketing, Tarikh, Hadist</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- MEMORIES (simplified) -->
+    <section class="section" id="memories">
+      <h2 class="section-title">☁️ Class Memories</h2>
+      <p class="section-sub">Kenangan singkat Class 5.1 — tambahkan foto & caption di tahap berikutnya</p>
+      <div class="schedule-grid">
+        <div class="day-card"><h3>📷 Our First Day</h3><p style="font-size:0.85rem;color:var(--muted)">Hari pertama bertemu di kelas.</p></div>
+        <div class="day-card"><h3>✨ Class Activities</h3><p style="font-size:0.85rem;color:var(--muted)">Kegiatan bersama & project.</p></div>
+        <div class="day-card"><h3>🎬 Random Moments</h3><p style="font-size:0.85rem;color:var(--muted)">Momen spontan yang lucu.</p></div>
+        <div class="day-card"><h3>🎂 Special Events</h3><p style="font-size:0.85rem;color:var(--muted)">Acara spesial kelas.</p></div>
+      </div>
+      <div class="jar-box" style="margin-top:28px">
+        <h3 style="margin-bottom:12px;color:var(--navy)">🫙 Jar of Memories</h3>
+        <p style="font-size:0.9rem;color:var(--muted);margin-bottom:14px">Buka satu kenangan acak dari kelas.</p>
+        <button class="btn btn-primary" id="jarBtn" style="width:100%">Buka Kenangan ✨</button>
+        <p id="jarResult" style="margin-top:14px;font-style:italic;color:var(--navy);display:none"></p>
+      </div>
+    </section>
+
+    <!-- BIRTHDAY -->
+    <section class="section" id="birthday">
+      <h2 class="section-title">🎂 Birthday Corner</h2>
+      <p class="section-sub">Ulang tahun anggota Class 5.1 (tanggal contoh — bisa diupdate)</p>
+      <div class="bday-grid" id="bdayGrid"></div>
+    </section>
+
+    <!-- GUESTBOOK -->
+    <section class="section" id="guestbook">
+      <h2 class="section-title">💌 Digital Guestbook</h2>
+      <p class="section-sub">Tinggalkan pesan atau kenangan untuk teman sekelas (tersimpan di browser ini)</p>
+      <form class="guest-form" id="guestForm">
+        <input type="text" id="guestName" placeholder="Nama kamu" required maxlength="40">
+        <textarea id="guestMsg" placeholder="Pesan, ucapan, atau kenangan…" required rows="3" maxlength="300"></textarea>
+        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+      </form>
+      <div class="memory-list" id="guestList"></div>
+    </section>
+
+    <!-- FUN EXTRAS -->
+    <section class="section" id="fun">
+      <h2 class="section-title">🎮 Fun Corner</h2>
+      <p class="section-sub">Who Am I? & mood singkat</p>
+      <div class="jar-box">
+        <h3 style="margin-bottom:10px">Who Am I?</h3>
+        <p style="font-size:0.9rem;color:var(--muted);margin-bottom:12px">Tebak anggota dari petunjuk.</p>
+        <button class="btn btn-soft" id="whoBtn" style="width:100%;margin-bottom:10px">Ambil Petunjuk</button>
+        <p id="whoClue" style="font-size:0.9rem;display:none"></p>
+        <input type="text" id="whoGuess" placeholder="Tebak nickname…" style="width:100%;padding:10px;border:1px solid var(--baby);border-radius:12px;margin:10px 0;display:none">
+        <button class="btn btn-primary" id="whoCheck" style="width:100%;display:none">Cek Jawaban</button>
+        <p id="whoResult" style="margin-top:10px;font-weight:600;display:none"></p>
+      </div>
+      <div class="jar-box" style="margin-top:16px">
+        <h3 style="margin-bottom:10px">Mood of The Class</h3>
+        <p style="font-size:0.9rem;color:var(--muted);margin-bottom:12px">Pilih emoji suasana hatimu hari ini.</p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;font-size:1.8rem">
+          <button class="mood-btn" data-mood="😊" style="background:none;border:none;cursor:pointer">😊</button>
+          <button class="mood-btn" data-mood="😴" style="background:none;border:none;cursor:pointer">😴</button>
+          <button class="mood-btn" data-mood="💪" style="background:none;border:none;cursor:pointer">💪</button>
+          <button class="mood-btn" data-mood="🥺" style="background:none;border:none;cursor:pointer">🥺</button>
+          <button class="mood-btn" data-mood="🎉" style="background:none;border:none;cursor:pointer">🎉</button>
+        </div>
+        <p id="moodLog" style="margin-top:12px;font-size:0.85rem;color:var(--muted);text-align:center"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Class 5.1 · One Class, One Story, Nineteen Memories</p>
+    <p style="margin-top:6px">Dibuat dengan 💙 · Siap deploy ke GitHub Pages</p>
+  </footer>
+
+  <!-- Music bar -->
+  <div class="music-bar" id="musicBar">
+    <span class="now" id="nowPlaying">Now Playing: Kita — Sheila On 7</span>
+    <div class="music-controls">
+      <button type="button" id="playPauseBtn" title="Play / Pause" aria-label="Play Pause">▶</button>
+      <button type="button" id="muteBtn" title="Mute / Unmute" aria-label="Mute">🔊</button>
+    </div>
+  </div>
+
+  <!-- Hidden audio — replace src with legal URL provided by the class -->
+  <audio id="bgAudio" loop preload="none">
+    <!-- 
+      COPYRIGHT NOTICE:
+      "Kita" by Sheila On 7 is a copyrighted work.
+      Do NOT host or embed an unauthorized MP3.
+      Replace the source below with a link the class has legal rights to use
+      (e.g. official streaming embed, licensed file, or school-approved audio).
+    -->
+    <source src="" type="audio/mpeg">
+  </audio>
+
+  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+
+  <nav class="bottom-nav" aria-label="Mobile navigation">
+    <a href="#home"><span>🏠</span>Home</a>
+    <a href="#members"><span>👥</span>Anggota</a>
+    <a href="#piket"><span>🧹</span>Piket</a>
+    <a href="#jadwal"><span>📚</span>Jadwal</a>
+    <a href="#guestbook"><span>💌</span>Pesan</a>
+  </nav>
+
+  <!-- Profile modal -->
+  <div class="modal-overlay" id="profileModal">
+    <div class="modal" id="profileContent"></div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
